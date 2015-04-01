@@ -41,6 +41,7 @@ var Player = function() {
 }
 var score=0;
 Player.prototype.update = function() {
+    //console.log(score);
     if (this.ctlKey === 'left' && this.x > 0){ 
         this.x = this.x - 100;
     } else if (this.ctlKey === 'right' && this.x != 400){
@@ -53,12 +54,14 @@ Player.prototype.update = function() {
     this.ctlKey = null;
     if (this.y < 60){
         this.reset();   
+        console.log(score);
     }
-    if(this.y<=83)
+    if(this.y===68)
     {
-        score+=20;
+        score++;
+        document.getElementById('score').innerHTML = 'score:'+ score;
     }
-    console.log(score);
+    //console.log(score);
 }
 
 Player.prototype.render = function() {
@@ -73,12 +76,11 @@ Player.prototype.reset = function() {
   player.x = 200;
   player.y = 400;
   }
-var enemy1 = new Enemy();
-var enemy2 = new Enemy();
-var enemy3 = new Enemy();
-var enemy4 = new Enemy();
-var enemy5 = new Enemy();
-var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
+var allEnemies =[];
+for(i=1; i<=5; i++){
+    var enemy = new Enemy();
+    allEnemies.push(enemy);
+}
 
 var player = new Player();
 
