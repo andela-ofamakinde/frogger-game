@@ -1,11 +1,7 @@
-
-
 var bugYPos = [60, 143, 226];
 var bugSpeed = 300;
 var collisionProx = 80;
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+var Enemy = function() {                            //enemy/bugfunction
     this.sprite = 'images/enemy-bug.png';
     this.x = -100;
     this.y = bugYPos[Math.floor(Math.random() * 3)];
@@ -34,7 +30,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-var Player = function() {
+var Player = function() {               //player function
   this.x = 200;
   this.y = 400;
   this.image = 'images/char-boy.png';
@@ -53,12 +49,9 @@ Player.prototype.update = function() {
     this.ctlKey = null;
     if (this.y < 60){
         this.reset();   
+        score++;
+    document.getElementById('score').innerHTML = 'score:'+ score;
     }
-    if(this.y<=83)
-    {
-        score+=20;
-    }
-    console.log(score);
 }
 
 Player.prototype.render = function() {
@@ -73,12 +66,11 @@ Player.prototype.reset = function() {
   player.x = 200;
   player.y = 400;
   }
-var enemy1 = new Enemy();
-var enemy2 = new Enemy();
-var enemy3 = new Enemy();
-var enemy4 = new Enemy();
-var enemy5 = new Enemy();
-var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
+var allEnemies =[];
+for(i=1; i<=5; i++){
+    var enemy = new Enemy();
+    allEnemies.push(enemy);
+}
 
 var player = new Player();
 
