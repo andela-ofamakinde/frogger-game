@@ -14,16 +14,16 @@ a{
 	font-size: 20px;
 	color:red;
 	margin-bottom: -30px;
-	margin-top: -20px;
+	margin-top: -50px;
 }
 #score{
-margin-bottom: -50px;
-font-size:20px;
+	margin-bottom: -50px;
+	font-size:20px;
 }
 #playagain{
 	border: 3px solid green;
 }
 h1{
-margin-bottom: -30px;
+margin-bottom: -40px;
 margin-top: -20px;
 }
